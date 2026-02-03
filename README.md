@@ -1,1 +1,3 @@
 # StoryLMS
+
+StoryLMS is a web-based learning platform designed for elementary students to help improve their vocabulary and reading comprehension skills. The system provides short, child-friendly stories with visual support such as GIFs to make reading more engaging. While reading, students can click highlighted words to hear how they are pronounced, helping them learn correct word sounds and meanings. After each story, students answer multiple-choice questions to check their understanding of the text and vocabulary. The platform is responsive and can be used on phones, tablets, and computers, making it easily accessible for young learners anytime and anywhere.
