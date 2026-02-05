@@ -14,7 +14,7 @@ class AuthController extends Controller
      */
     public function showLogin()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     /**
@@ -30,7 +30,7 @@ class AuthController extends Controller
         // Case-insensitive name search
         // Convert input to Title Case for consistency
         $inputName = $this->formatName($credentials['name']);
-        
+
         // Find user with case-insensitive name match
         $user = User::whereRaw('LOWER(name) = ?', [strtolower($inputName)])
                     ->where('birthdate', $credentials['birthdate'])
@@ -38,11 +38,11 @@ class AuthController extends Controller
 
         if ($user) {
             Auth::login($user);
-            
+
             // Store first name in session for welcome page
             $firstName = $this->getFirstName($user->name);
             session(['user_first_name' => $firstName]);
-            
+
             return redirect()->route('welcome');
         }
 
@@ -70,7 +70,7 @@ class AuthController extends Controller
         // Check if user already exists by name only (DB enforces unique name)
         $existingUser = User::whereRaw('LOWER(name) = ?', [strtolower($fullName)])
             ->first();
-        
+
         if ($existingUser) {
             return back()
                 ->withErrors([
@@ -98,13 +98,13 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/');
     }
 
     /**
      * Format name to Title Case (handles all caps or lowercase input)
-     * 
+     *
      * @param string $name
      * @return string
      */
@@ -112,7 +112,7 @@ class AuthController extends Controller
     {
         // Trim whitespace
         $name = trim($name);
-        
+
         // Convert to Title Case
         // This handles: "JAN LOUISE" → "Jan Louise", "jan louise" → "Jan Louise"
         return ucwords(strtolower($name));
@@ -120,7 +120,7 @@ class AuthController extends Controller
 
     /**
      * Extract first name from full name
-     * 
+     *
      * @param string $fullName
      * @return string
      */
