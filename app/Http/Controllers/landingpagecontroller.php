@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class landingpagecontroller extends Controller
+class LandingPageController extends Controller
 {
     // Public landing page (currently rendered directly via view in routes)
     public function index()

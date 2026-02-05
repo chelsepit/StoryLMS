@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\landingpagecontroller;
+use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -26,10 +26,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     // Welcome Page - shown after login with personalized greeting
     Route::get('/welcome', [landingpagecontroller::class, 'welcome'])->name('welcome');
-    
+
     // Story Shelf
     Route::get('/stories', [landingpagecontroller::class, 'stories'])->name('stories.index');
-    
+
     // Settings
     Route::get('/settings', [landingpagecontroller::class, 'settings'])->name('settings');
     Route::post('/settings/audio', [landingpagecontroller::class, 'updateAudioPreference'])->name('settings.audio');
