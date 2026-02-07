@@ -6,6 +6,27 @@
 @source '../**/*.js';
 
 /* =========================
+   FONTS
+   ========================= */
+    @font-face {
+        font-family: 'accent-font';
+        src: url('/resources/fonts/Schoolbell/Schoolbell-Regular.ttf');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'header-font';
+        src: url('/resources/fonts/Lexend/Lexend-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+        font-family: 'body-font';
+        src: url('/resources/fonts/Fredoka/Fredoka-VariableFont_wdth\,wght.ttf');
+    }
+
+
+/* =========================
    THEME / BRAND VARIABLES
    ========================= */
 :root {
@@ -19,11 +40,19 @@
    TYPOGRAPHY
    ========================= */
 .title-font {
-    font-family: 'Baloo 2', cursive;
+    font-family: 'accent-font', cursive;
+}
+
+.header-font {
+    font-family: 'header-font';
+}
+
+.body-font{
+    font-family: 'body-font';
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'body-font', sans-serif;
 }
 
 /* =========================
@@ -48,7 +77,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 50%, #90EE90 50%, #90EE90 100%);
+    background: url('/public/assets/images/backgrounds/welcome.svg') no-repeat center center;
+    background-size: cover;
     z-index: -1;
 }
 
@@ -64,16 +94,6 @@ body {
         radial-gradient(ellipse at 80% 50%, rgba(34, 139, 34, 0.3) 0%, transparent 50%);
 }
 
-/* Grass decoration */
-.grass-blade {
-    position: absolute;
-    bottom: 0;
-    width: 30px;
-    height: 60px;
-    background: linear-gradient(to top, #4CAF50, #8BC34A);
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
 /* =========================
    WELCOME PAGE CONTENT
    ========================= */
@@ -81,11 +101,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
     position: relative;
     z-index: 10;
+}
+
+.flex-grow {
+    flex-grow: 1;
 }
 
 /* Welcome Text Animation */
@@ -278,6 +301,7 @@ input:checked + .toggle-slider:before {
     padding: 1.125rem;
     border: 3px solid var(--orange-accent);
     cursor: pointer;
+    margin: 30px 0px;
 }
 
 .submit-btn:hover {

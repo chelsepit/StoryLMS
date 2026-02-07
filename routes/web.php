@@ -18,10 +18,9 @@ Route::get('/', function () {
 
 // Authentication Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register.show');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 // Protected Routes (require authentication)
 Route::middleware(['auth'])->group(function () {
     // Welcome Page - shown after login with personalized greeting
