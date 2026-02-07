@@ -17,6 +17,11 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function showRegister()
+    {
+        return view('auth.registration');
+    }
+
     /**
      * Handle user login with case-insensitive name matching
      */

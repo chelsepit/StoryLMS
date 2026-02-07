@@ -63,26 +63,28 @@
     </div>
 </div>
 
-<!-- Main Content -->
 <div class="welcome-content">
-    <!-- Welcome Message -->
-    <div class="text-center mb-12 fade-in">
-        <h1 class="title-font text-4xl md:text-6xl font-extrabold mb-4"
-            style="color: #333; text-shadow: 3px 3px 0 var(--primary-yellow);">
+    <div class="text-center mt-10 fade-in">
+        <!-- Main Greeting -->
+        <h1 class="header-font text-4xl md:text-6xl font-extrabold mb-2" style="color: #000000;">
             Hello, <span id="userName">{{ session('user_first_name', 'Student') }}</span>!
         </h1>
-        <p class="title-font text-2xl md:text-3xl font-bold text-gray-800">
+
+        <!-- Subtitle (straight text, no curve) -->
+        <p class="body-font text-3xl md:text-4xl text-black mt-2">
             Your Word Journey Starts Here
         </p>
     </div>
 
+    <div class="flex-grow"></div>
+
     <!-- Start Reading Button -->
-    <button
-        class="start-button title-font font-extrabold fade-in"
-        style="animation-delay: 0.3s;"
-        data-route="{{ route('stories.index') }}"
-        onclick="startReading()">
-        Start Reading 📖
-    </button>
+    <div class="mb-12 fade-in" style="animation-delay: 0.3s;">
+        <button
+            class="start-button header-font font-extrabold"
+            data-route="{{ route('stories.index') }}"
+            onclick="startReading()">
+            Start Reading
+        </button>
+    </div>
 </div>
-@endsection
