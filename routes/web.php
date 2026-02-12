@@ -33,6 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', [landingpagecontroller::class, 'settings'])->name('settings');
     Route::post('/settings/audio', [landingpagecontroller::class, 'updateAudioPreference'])->name('settings.audio');
     Route::post('/settings/save', [landingpagecontroller::class, 'saveSettings'])->name('settings.save');
+
+    //Stories
+    Route::get('/stories', [LandingPageController::class, 'stories'])->name('stories.index');
+
 });
 
 // API Routes for AJAX requests

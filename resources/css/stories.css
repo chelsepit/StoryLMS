@@ -1,0 +1,233 @@
+/* =========================
+   COMPONENTS
+   ========================= */
+.components {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* =========================
+   LIBRARY PAGE BACKGROUND & LAYOUT
+   ========================= */
+.library-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: url('/public/assets/images/backgrounds/library-bg.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: visible;
+}
+
+/* =========================
+   LIBRARY HEADER & TITLE
+   ========================= */
+.library-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.library-header * {
+    pointer-events: auto;
+}
+
+.library-title-wrapper {
+    text-align: center;
+    width: 100%;
+    margin-top: 60px;
+}
+
+/* =========================
+   GENRE SEARCH BAR
+   ========================= */
+.genre-search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.genre-search-bar {
+    color: white;
+    border: 3px solid white;
+    padding: 5px 20px 5px 65px;
+    width: 300px;
+    border-radius: 20px;
+    background: transparent;
+    font-family: 'header-font', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    width: 40px;
+    border-right: 2px solid white;
+    padding-right: 10px;
+    margin-right: -50px;
+    z-index: 10;
+}
+
+.x-icon {
+    width: 25px;
+    margin-left: -40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* =========================
+   GENRE NAVIGATION
+   ========================= */
+.genre-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 30px;
+}
+
+.genre-tag {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-family: 'header-font', sans-serif;
+    font-weight: 800;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+
+.genre-tag img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.genre-tag:hover img {
+    transform: translateY(-5px);
+}
+
+/* =========================
+   BOOKSHELF CONTENT WRAPPER
+   ========================= */
+.library-content-wrapper {
+    position: relative;
+    margin-top: 380px;
+    margin-bottom: 50px;
+    width: 90%;
+    max-width: 1100px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.244);
+    backdrop-filter: blur(8px);
+    border-radius: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-family: 'header-font', sans-serif;
+    font-size: 2.5rem;
+    color: #451a03;
+    margin: 0;
+}
+
+.view-all-link {
+    font-style: italic;
+    color: #78350f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================
+   BOOK GRID & PROGRESS
+   ========================= */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-item img {
+    width: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.progress-container {
+    width: 85%;
+    height: 14px;
+    background-color: #1a202c;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #22d3ee;
+    border-radius: 10px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .library-content-wrapper {
+        margin-top: 350px;
+        padding: 20px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .library-content-wrapper {
+        max-width: 1200px; /* Wider container for big screens */
+        margin-top: 420px; /* Slightly more gap to show the forest title */
+        padding: 60px;
+    }
+
+    .book-grid {
+        /* You can stick to 3 columns or switch to 4 if you have many books */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px; /* Larger gap for a premium feel */
+    }
+
+    .section-title {
+        font-size: 3rem; /* Bigger title for big screens */
+    }
+}

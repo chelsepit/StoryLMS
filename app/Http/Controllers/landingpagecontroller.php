@@ -22,7 +22,7 @@ class LandingPageController extends Controller
     // Stories index (placeholder)
     public function stories()
     {
-        return view('welcome'); // TODO: replace with stories view when available
+        return view('stories.index');
     }
 
     // Settings page (placeholder)
@@ -30,6 +30,7 @@ class LandingPageController extends Controller
     {
         return view('welcome'); // TODO: replace with settings view when available
     }
+
 
     // Example settings mutation endpoints (placeholders)
     public function updateAudioPreference(Request $request)
